@@ -1,7 +1,7 @@
-SUBDIR = budgie-screensaver
-SUBDIR += budgie-desktop-view
-SUBDIR += budgie-desktop
-SUBDIR += budgie-control-center
+SUBDIR = screensaver
+SUBDIR += desktop
+SUBDIR += desktop-view
+#SUBDIR += control-center
 
 
 .include <bsd.port.subdir.mk>
