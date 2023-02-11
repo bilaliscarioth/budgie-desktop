@@ -6,16 +6,16 @@ MAINTAINER =	Bilal Emohmadian <bilal@iscarioth.org>
 VERSION =			10.7
 
 CONFIGURE_ARGS = \
-								 -Dwith-bluetooth=false \
-								 -Dwith-libuuid-time-safe=false
+				 -Dwith-bluetooth=false \
+				 -Dwith-libuuid-time-safe=false
 
 #GPLv2
 PERMIT_PACKAGE=Yes
 
 LIB_DEPENDS= \
-						 devel/libinotify \
-						 devel/gettext,-tools \
-						 devel/libpeas
+			 devel/libinotify \
+			 devel/gettext,-tools \
+			 devel/libpeas
 
 MODULES= devel/meson
 
