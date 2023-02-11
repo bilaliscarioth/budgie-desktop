@@ -12,11 +12,11 @@ MAINTAINER=	Bilal Emohmadian <bilal@iscarioth.org>
 PERMIT_PACKAGE=	Yes
 
 LIB_DEPENDS = \
-			  devel/gettext,-tools
+	devel/gettext,-tools
 
 CONFIGURE_ARGS = \
-				 -Dwith-systemd=false \
-				 -Dwith-bsd_auth=true
+	-Dwith-systemd=false \
+	-Dwith-bsd_auth=true
 
 MODULES=		devel/meson 
 
