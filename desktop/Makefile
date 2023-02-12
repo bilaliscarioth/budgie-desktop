@@ -5,28 +5,54 @@ CATEGORIES =	x11
 MAINTAINER =	Bilal Emohmadian <bilal@iscarioth.org>
 VERSION =			10.7
 
+# Budgie repository
+DISTFILES = v${VERSION}.tar.gz
+MASTER_SITES =	https://github.com/bilaliscarioth/budgie-desktop/archive/refs/
+MASTER_SITES += tag/
+
 CONFIGURE_ARGS = \
 	-Dwith-bluetooth=false \
 	-Dwith-libuuid-time-safe=false
 
-#GPLv2
+#GPLv2 / LGPLv2
 PERMIT_PACKAGE=Yes
 
+MODGNOME_TOOLS=	desktop-file-utils gtk-update-icon-cache
+
 LIB_DEPENDS= \
-	devel/libinotify \
 	devel/gettext,-tools \
-	devel/libpeas 
+	devel/libpeas \
+	devel/libinotify \
+	graphics/gdk-pixbuf2 \
+	devel/libwnck
+
+RUN_DEPENDS = \
+	lang/vala  \
+	devel/desktop-file-utils \
+	x11/gtk+3,-guic
+
+WANTLIB += GL ICE SM X11 X11-xcb Xcomposite Xcursor Xdamage Xext Xfixes
+WANTLIB += Xi Xinerama Xrandr Xrender Xss Xxf86vm atk-1.0 atk-bridge-2.0
+WANTLIB += c cairo cairo-gobject dbus-1 dbus-glib-1 dconf drm epoxy
+WANTLIB += expat ffi fontconfig freetype fribidi gdk-3 gdk_pixbuf-2.0
+WANTLIB += gio-2.0 glapi glib-2.0 gmodule-2.0 gobject-2.0 graphite2
+WANTLIB += gthread-2.0 gtk-3 harfbuzz iconv intl lzma m notify pango-1.0
+WANTLIB += pangoft2-1.0 pcre2-8 pixman-1 png pthread startup-notification-1
+WANTLIB += xcb xcb-dri2 xcb-dri3 xcb-glx xcb-present xcb-render xcb-shm
+WANTLIB += xcb-sync xcb-util xcb-xfixes xkbfile xklavier xml2 xshmfence
+WANTLIB += z pangocairo-1.0 canberra 
+
+FAKE_FLAGS=	settingsdir=${PREFIX}/share/examples/budgie-desktop \
+			conffilesdir=${PREFIX}/share/examples/budgie-desktop \
+			autostartdir=${PREFIX}/share/examples/budgie-desktop
 
 MODULES= devel/meson
 
-WANTLIB = X11 canberra  glib-2.0 gtk-3 gnome-desktop-3 gee-0.8 gdk-x11-2.0
-WANTLIB += gio-2.0 gdk-3 uuid intl cairo gstreamer-1.0 X11 
-
-# Budgie repository
-DISTFILES = v${VERSION}.tar.gz
-MASTER_SITES =	https://github.com/bilaliscarioth/budgie-desktop/archive/refs/tags/
-
 COMPILER = 		base-clang
 CONFIGURE_ENV = LDFLAGS="-L/usr/X11R6/lib/"
+
+post-install:
+	@mv ${WRKINST}/etc/xdg/autostart \
+		${PREFIX}/share/examples/budgie-screensaver/xdg/autostart
 
 .include <bsd.port.mk>

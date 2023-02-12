@@ -440,6 +440,6 @@ share/vala/vapi/budgie-raven-plugin-1.0.deps
 share/vala/vapi/budgie-raven-plugin-1.0.vapi
 share/xsessions/
 share/xsessions/budgie-desktop.desktop
+@tag gtk-update-icon-cache %D/share/icons/hicolor
 @tag glib-compile-schemas
 @tag update-desktop-database
-@tag gtk-update-icon-cache %D/share/icons/hicolor
