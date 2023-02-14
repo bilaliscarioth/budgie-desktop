@@ -59,7 +59,7 @@ MODULES= devel/meson \
 	x11/gnome
 
 COMPILER = base-clang
-MAKE_FLAGS = -L/usr/X11R6/lib/
+CFLAGS = -L/usr/X11R6/lib/
 
 
 post-install:
