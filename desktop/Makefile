@@ -34,6 +34,14 @@ RUN_DEPENDS = \
 	x11/gtk+3,-guic \
 	devel/cmake
 
+SHARED_LIBS +=  budgie-appindexer         0.0 # 0.0
+SHARED_LIBS +=  budgie-plugin             0.0 # 0.0
+SHARED_LIBS +=  budgie-private            0.0 # 0.0
+SHARED_LIBS +=  budgie-raven-plugin       0.0 # 0.0
+SHARED_LIBS +=  budgietheme               0.0 # 0.0
+SHARED_LIBS +=  raven                     0.0 # 0.0
+
+
 WANTLIB += GL ICE SM X11 X11-xcb Xcomposite Xcursor Xdamage Xext Xfixes
 WANTLIB += Xi Xinerama Xrandr Xrender Xss Xxf86vm atk-1.0 atk-bridge-2.0
 WANTLIB += c cairo cairo-gobject dbus-1 dbus-glib-1 dconf drm epoxy
@@ -43,16 +51,19 @@ WANTLIB += gthread-2.0 gtk-3 harfbuzz iconv intl lzma m notify pango-1.0
 WANTLIB += pangoft2-1.0 pcre2-8 pixman-1 png pthread startup-notification-1
 WANTLIB += xcb xcb-dri2 xcb-dri3 xcb-glx xcb-present xcb-render xcb-shm
 WANTLIB += xcb-sync xcb-util xcb-xfixes xkbfile xklavier xml2 xshmfence
+WANTLIB += gee-0.8 girepository-1.0 ibus-1.0 peas-1.0
 WANTLIB += z pangocairo-1.0 canberra 
 
 MODULES= devel/meson \
 	x11/gnome
 
 COMPILER = base-clang
-CONFIGURE_ENV = LDFLAGS="-L/usr/X11R6/lib/"
+MAKE_FLAGS = -L/usr/X11R6/lib/
+
 
 post-install:
+	@mkdir -p ${PREFIX}/share/examples/budgie-desktop/xdg/autostart
 	@mv ${WRKINST}/etc/xdg/autostart \
-	${PREFIX}/share/examples/budgie-screensaver/xdg/autostart
+	${PREFIX}/share/examples/budgie-desktop/xdg/autostart
 
 .include <bsd.port.mk>
