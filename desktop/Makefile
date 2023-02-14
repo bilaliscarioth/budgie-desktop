@@ -1,14 +1,13 @@
-COMMENT =		budgie, desktop environment
-DISTNAME =		budgie-desktop-${VERSION}
+COMMENT =	budgie, desktop environment
+DISTNAME =	budgie-desktop-${VERSION}
 CATEGORIES =	x11
 
 MAINTAINER =	Bilal Emohmadian <bilal@iscarioth.org>
-VERSION =			10.7
+VERSION =	10.7
 
 # Budgie repository
 DISTFILES = v${VERSION}.tar.gz
-MASTER_SITES =	https://github.com/bilaliscarioth/budgie-desktop/archive/refs/
-MASTER_SITES += tag/
+MASTER_SITES = https://github.com/bilaliscarioth/budgie-desktop/archive/refs/tags/
 
 CONFIGURE_ARGS = \
 	-Dwith-bluetooth=false \
@@ -24,12 +23,15 @@ LIB_DEPENDS= \
 	devel/libpeas \
 	devel/libinotify \
 	graphics/gdk-pixbuf2 \
-	devel/libwnck
+	devel/libwnck \
+	devel/libgee \
+	inputmethods/ibus 
 
 RUN_DEPENDS = \
 	lang/vala  \
 	devel/desktop-file-utils \
-	x11/gtk+3,-guic
+	x11/gtk+3,-guic \
+	devel/cmake
 
 WANTLIB += GL ICE SM X11 X11-xcb Xcomposite Xcursor Xdamage Xext Xfixes
 WANTLIB += Xi Xinerama Xrandr Xrender Xss Xxf86vm atk-1.0 atk-bridge-2.0
@@ -42,17 +44,14 @@ WANTLIB += xcb xcb-dri2 xcb-dri3 xcb-glx xcb-present xcb-render xcb-shm
 WANTLIB += xcb-sync xcb-util xcb-xfixes xkbfile xklavier xml2 xshmfence
 WANTLIB += z pangocairo-1.0 canberra 
 
-FAKE_FLAGS=	settingsdir=${PREFIX}/share/examples/budgie-desktop \
-			conffilesdir=${PREFIX}/share/examples/budgie-desktop \
-			autostartdir=${PREFIX}/share/examples/budgie-desktop
+MODULES= devel/meson \
+	x11/gnome
 
-MODULES= devel/meson
-
-COMPILER = 		base-clang
+COMPILER = base-clang
 CONFIGURE_ENV = LDFLAGS="-L/usr/X11R6/lib/"
 
 post-install:
 	@mv ${WRKINST}/etc/xdg/autostart \
-		${PREFIX}/share/examples/budgie-screensaver/xdg/autostart
+	${PREFIX}/share/examples/budgie-screensaver/xdg/autostart
 
 .include <bsd.port.mk>

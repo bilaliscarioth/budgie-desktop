@@ -28,7 +28,7 @@ WANTLIB = X11 glib-2.0 gnome-desktop-3 dbus-glib-1 intl
 WANLIB += gio-2.0
 
 DISTFILES =	v${BUDGIE_VERSION}.tar.gz
-MASTER_SITES =	https://github.com/BuddiesOfBudgie/budgie-screensaver/archive/refs/tags/
+MASTER_SITES =	https://github.com/bilaliscarioth/budgie-screensaver/archive/refs/tags/
 
 COMPILER =	base-clang
 
