@@ -32,7 +32,8 @@ RUN_DEPENDS = \
 	lang/vala  \
 	devel/desktop-file-utils \
 	x11/gtk+3,-guic \
-	devel/cmake
+	devel/cmake \
+	x11/gnome/desktop
 
 SHARED_LIBS +=  budgie-appindexer         0.0 # 0.0
 SHARED_LIBS +=  budgie-plugin             0.0 # 0.0
