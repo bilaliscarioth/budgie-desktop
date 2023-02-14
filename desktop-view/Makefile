@@ -1,4 +1,4 @@
-COMMENT =		budgie desktop view, familiar and modern  desktop environnment
+COMMENT =		budgie desktop view, familiar and modern desktop env.
 DISTNAME =		budgie-desktop-view-${VERSION}
 CATEGORIES =	x11
 
@@ -14,7 +14,7 @@ LIB_DEPENDS = devel/gettext,-tools
 
 MODULES= devel/meson
 
-WANTLIB= glib-2.0 gtk-3
+WANTLIB= c gio-2.0 gobject-2.0 glib-2.0 gtk-3
 
 # Budgie repository
 GH_ACCOUNT = BuddiesOfBudgie
