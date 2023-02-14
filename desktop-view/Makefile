@@ -17,8 +17,9 @@ MODULES= devel/meson
 WANTLIB= glib-2.0 gtk-3
 
 # Budgie repository
-DISTFILES = v${VERSION}.tar.gz
-MASTER_SITES =	https://github.com/BuddiesOfBudgie/budgie-desktop-view/archive/refs/tags/
+GH_ACCOUNT = BuddiesOfBudgie
+GH_PROJECT =  budgie-desktop-view
+GH_COMMIT = ca255e44644a91dc21cb0882778d413049063088
 
 COMPILER = 		base-clang
 

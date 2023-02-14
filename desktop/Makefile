@@ -5,9 +5,10 @@ CATEGORIES =	x11
 MAINTAINER =	Bilal Emohmadian <bilal@iscarioth.org>
 VERSION =	10.7
 
-# Budgie repository
-DISTFILES = v${VERSION}.tar.gz
-MASTER_SITES = https://github.com/bilaliscarioth/budgie-desktop/archive/refs/tags/
+GH_ACCOUNT = bilaliscarioth
+GH_PROJECT = budgie-desktop
+GH_COMMIT = 70424bcee090ebe034fd76cb72d206a50bdd0b49
+
 
 CONFIGURE_ARGS = \
 	-Dwith-bluetooth=false \
