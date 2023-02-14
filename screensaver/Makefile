@@ -16,7 +16,8 @@ PERMIT_PACKAGE=	Yes
 
 LIB_DEPENDS = \
 	devel/gettext,-tools \
-	devel/gsettings-desktop-schemas
+	devel/gsettings-desktop-schemas \
+	x11/gnome/desktop
 
 RUN_DEPENDS = \
 	x11/gnome/libgnomekbd
@@ -27,9 +28,8 @@ CONFIGURE_ARGS = \
 
 MODULES= devel/meson 
 
-WANTLIB = X11 glib-2.0 gnome-desktop-3 dbus-glib-1 intl
-WANTLIB += Xxf86vm c cairo dbus-1 gdk-3 gdk_pixbuf-2.0 gio-2.0
-WANTLIB += gobject-2.0 gtk-3
+WANTLIB = Xxf86vm c cairo dbus-1 gdk-3 gdk_pixbuf-2.0 gio-2.0
+WANTLIB += X11 glib-2.0 intl gobject-2.0 gtk-3
 
 COMPILER =	base-clang
 

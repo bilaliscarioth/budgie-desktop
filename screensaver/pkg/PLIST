@@ -1,6 +1,8 @@
 @bin bin/budgie-screensaver
 @bin bin/budgie-screensaver-command
+@mode u+s
 @bin libexec/budgie-screensaver-dialog
+@mode
 @man man/man1/budgie-screensaver-command.1
 @man man/man1/budgie-screensaver.1
 share/applications/budgie-screensaver.desktop
