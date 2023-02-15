@@ -1,37 +1,35 @@
 COMMENT =	budgie screensaver, screen saver and locker
-DISTNAME =	budgie-screensaver-${BUDGIE_VERSION}
+DISTNAME =	budgie-screensaver-v5.1.0
 
-BUDGIE_VERSION =	5.1.0
+GH_ACCOUNT = BuddiesOfBudgie
+GH_PROJECT = budgie-screensaver
+GH_TAGNAME = v5.1.0
 
 CATEGORIES=	x11
 
 MAINTAINER=	Bilal Emohmadian <bilal@iscarioth.org>
 
-GH_ACCOUNT = bilaliscarioth
-GH_PROJECT = budgie-screensaver
-GH_COMMIT = a87bc18b24b0e9e5df4634846dc3c624cc96f88e
-
 # GNU GPLv2
 PERMIT_PACKAGE=	Yes
+
+WANTLIB = Xxf86vm c cairo dbus-1 gdk-3 gdk_pixbuf-2.0 gio-2.0
+WANTLIB += X11 glib-2.0 intl gobject-2.0 gtk-3
+
+COMPILER =	base-clang
+
+RUN_DEPENDS = \
+	x11/gnome/libgnomekbd
 
 LIB_DEPENDS = \
 	devel/gettext,-tools \
 	devel/gsettings-desktop-schemas \
 	x11/gnome/desktop
 
-RUN_DEPENDS = \
-	x11/gnome/libgnomekbd
-
 CONFIGURE_ARGS = \
 	-Dwith-systemd=false \
 	-Dwith-bsd_auth=true
 
 MODULES= devel/meson 
-
-WANTLIB = Xxf86vm c cairo dbus-1 gdk-3 gdk_pixbuf-2.0 gio-2.0
-WANTLIB += X11 glib-2.0 intl gobject-2.0 gtk-3
-
-COMPILER =	base-clang
 
 CFLAGS +=	-I${LOCALBASE}/include/
 
