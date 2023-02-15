@@ -1,6 +1,6 @@
-SUBDIR = screensaver
-SUBDIR += desktop
-SUBDIR += desktop-view
+SUBDIR = budgie-screensaver
+SUBDIR += budgie-desktop
+SUBDIR += budgie-desktop-view
 #SUBDIR += control-center
 
 
