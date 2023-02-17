@@ -1,9 +1,12 @@
 COMMENT =	budgie screensaver, screen saver and locker
-DISTNAME =	budgie-screensaver-v5.1.0
+DISTNAME =	budgie-screensaver-5.1.0
 
 GH_ACCOUNT = BuddiesOfBudgie
 GH_PROJECT = budgie-screensaver
-GH_TAGNAME = v5.1.0
+# Tag is too old
+GH_COMMIT = dcf496d04ae9741405c32b92c625ab082588a007
+
+REVISION = 4
 
 CATEGORIES=	x11
 
